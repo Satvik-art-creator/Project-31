@@ -3,8 +3,6 @@ class Particle{
 
         var option = {
             restitution: 0.4,
-            friction: 0.8,
-            speed: 7
         }
 
         this.body = Bodies.circle(x,y,radius,option);
