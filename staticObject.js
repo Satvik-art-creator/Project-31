@@ -3,7 +3,8 @@ class Plinko{
 
         var option = {
             isStatic: true,
-            friction: 0.8
+            restitution: 0.5,
+            density: 0.5
         }
 
         this.body = Bodies.circle(x,y,10,option);
