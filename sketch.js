@@ -53,11 +53,6 @@ function setup() {
   for(var pl=15; pl<=width-10; pl=pl+50){
     plinkos.push(new Plinko(pl, 375));
   }
-  
-  
-  if(frameCount % 60 === 0){
-    particles.push(new Particle(random(width/2-10, width/2+10), 10, 10));
-  }
 }
 
 function draw() {
@@ -77,6 +72,10 @@ function draw() {
 
   for(var pl=0; pl<plinkos.length; pl++){
     plinkos[pl].display();
+  }
+  
+   if(frameCount % 60 === 0){
+    particles.push(new Particle(random(width/2-10, width/2+10), 10, 10));
   }
 
   for(var par=0; par<particles.length; par++){
