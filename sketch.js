@@ -31,29 +31,13 @@ function setup() {
   border3 = new Border(240,796,500,7);
   border4 = new Border(4,400,7,810);
 
-  leftDivision = new Division(9, 650, 10, 300);
-  rightDivision = new Division(470, 650, 10, 300);
-}
-
-function draw() {
-  background(0);  
-  Engine.update(engine);
-
-  ground.display();
-
-  // console.log(divisions);
-
-  for(var d=0; d<=width; d=d+80){
+   for(var d=0; d<=width; d=d+80){
     divisions.push(new Division(d, height-divisionHeight/2, 10, divisionHeight));
   }
-
-  for(var d=0; d<divisions.length; d++){
-    divisions[d].display();
-  }
-
-  leftDivision.display();
-  rightDivision.display();
-
+  
+  leftDivision = new Division(9, 650, 10, 300);
+  rightDivision = new Division(470, 650, 10, 300);
+  
   for(var pl=40; pl<=width; pl=pl+50){
     plinkos.push(new Plinko(pl, 75));
   }
@@ -69,13 +53,30 @@ function draw() {
   for(var pl=15; pl<=width-10; pl=pl+50){
     plinkos.push(new Plinko(pl, 375));
   }
+  
+  
+  if(frameCount % 60 === 0){
+    particles.push(new Particle(random(width/2-10, width/2+10), 10, 10));
+  }
+}
+
+function draw() {
+  background(0);  
+  Engine.update(engine);
+
+  ground.display();
+
+  // console.log(divisions);
+
+  for(var d=0; d<divisions.length; d++){
+    divisions[d].display();
+  }
+
+  leftDivision.display();
+  rightDivision.display();
 
   for(var pl=0; pl<plinkos.length; pl++){
     plinkos[pl].display();
-  }
-
-  if(frameCount % 60 === 0){
-    particles.push(new Particle(random(width/2-10, width/2+10), 10, 10));
   }
 
   for(var par=0; par<particles.length; par++){
